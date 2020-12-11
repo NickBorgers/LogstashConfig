@@ -1,0 +1,23 @@
+output {
+  if [type] == "ping" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      index => "ping"
+    }
+  } else if [type] == "syslog" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      index => "syslog"
+    }
+  } else if [type] == "isy_event" {
+    elasticsearch { 
+      hosts => ["localhost:9200"] 
+      index => "isy_event"
+    }
+  } else if [type] == "beats" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      index => "%{[@metadata][beat]}-%{[@metadata][version]}"
+    }
+  }
+}

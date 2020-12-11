@@ -1,0 +1,12 @@
+# This file is where you define your pipelines. You can define multiple.
+# For more information on multiple pipelines, see the documentation:
+#   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
+
+- pipeline.id: isy
+  path.config: "/etc/logstash/conf.d/isy/*.conf"
+- pipeline.id: syslog
+  path.config: "/etc/logstash/conf.d/syslog/*.conf"
+- pipeline.id: ping
+  path.config: "/etc/logstash/conf.d/ping/*.conf"
+- pipeline.id: beats
+  path.config: "/etc/logstash/conf.d/beats/*.conf"
